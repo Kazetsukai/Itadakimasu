@@ -1,12 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://h3ixncd1lqh3"]
+[gd_scene load_steps=15 format=3 uid="uid://h3ixncd1lqh3"]
 
 [ext_resource type="Script" path="res://Scripts/RecipeBox.gd" id="1_2rv75"]
 [ext_resource type="Texture2D" uid="uid://cy0n7dotijvcq" path="res://Assets/inventory.png" id="2_ip7xp"]
 [ext_resource type="Script" path="res://Scripts/Link.gd" id="2_lhk3r"]
 [ext_resource type="Script" path="res://ItemCheat.gd" id="3_1x01w"]
 [ext_resource type="Script" path="res://Scripts/InventoryCloser.gd" id="3_2f27a"]
+[ext_resource type="Script" path="res://Scripts/Book.gd" id="3_2j6xo"]
 [ext_resource type="Script" path="res://Scripts/InventoryBag.gd" id="3_h60vu"]
+[ext_resource type="Script" path="res://Scripts/BackingPanel.gd" id="4_cq6bj"]
+[ext_resource type="PackedScene" uid="uid://bs1afjdqfjopx" path="res://BookDisplay.tscn" id="5_fiajc"]
 [ext_resource type="Texture2D" uid="uid://qwfo40hfsecu" path="res://Assets/map.png" id="5_mf0jq"]
+
+[sub_resource type="Gradient" id="Gradient_wpbiq"]
+colors = PackedColorArray(0.325926, 0.241814, 0.0930101, 1, 0.744716, 0.703879, 0.291784, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3psmt"]
+gradient = SubResource("Gradient_wpbiq")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shlps"]
 bg_color = Color(0.141176, 0.109804, 0.0431373, 0.94902)
@@ -28,7 +37,7 @@ grow_vertical = 2
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 5
 
-[node name="Panel2" type="Panel" parent="UI"]
+[node name="MapPanel" type="Panel" parent="UI"]
 modulate = Color(1, 1, 1, 0.337255)
 offset_left = 1716.0
 offset_top = 56.0
@@ -45,7 +54,41 @@ ignore_texture_size = true
 script = ExtResource("2_lhk3r")
 target = "res://Locations/Map.tscn"
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="BookPanel" type="Panel" parent="UI"]
+modulate = Color(1, 1, 1, 0.337255)
+offset_left = 1716.0
+offset_top = 366.0
+offset_right = 1841.0
+offset_bottom = 488.0
+
+[node name="Book" type="TextureRect" parent="UI"]
+offset_left = 1716.0
+offset_top = 365.0
+offset_right = 1841.0
+offset_bottom = 487.0
+texture = SubResource("GradientTexture1D_3psmt")
+ignore_texture_size = true
+script = ExtResource("3_2j6xo")
+
+[node name="BackingPanel" type="Panel" parent="UI/Book"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.741176)
+z_index = 1
+layout_mode = 0
+offset_left = -1722.0
+offset_top = -378.0
+offset_right = 232.0
+offset_bottom = 740.0
+script = ExtResource("4_cq6bj")
+
+[node name="BookDisplay" parent="UI/Book/BackingPanel" instance=ExtResource("5_fiajc")]
+layout_mode = 0
+offset_left = 229.0
+offset_top = 74.0
+offset_right = 1498.0
+offset_bottom = 858.0
+
+[node name="BagPanel" type="Panel" parent="UI"]
 modulate = Color(1, 1, 1, 0.337255)
 offset_left = 1715.0
 offset_top = 211.0
@@ -62,6 +105,7 @@ ignore_texture_size = true
 script = ExtResource("3_h60vu")
 
 [node name="BackingPanel" type="Panel" parent="UI/InventoryBag"]
+visible = false
 modulate = Color(1, 1, 1, 0.643137)
 layout_mode = 0
 offset_left = -1733.0
@@ -71,6 +115,7 @@ offset_bottom = 889.0
 script = ExtResource("3_2f27a")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/InventoryBag"]
+visible = false
 layout_mode = 0
 offset_left = -1636.0
 offset_top = -160.0
@@ -126,5 +171,7 @@ offset_right = 1872.0
 offset_bottom = 1031.0
 
 [connection signal="gui_input" from="UI/Map" to="UI/Map" method="_on_gui_input"]
+[connection signal="gui_input" from="UI/Book" to="UI/Book" method="_on_gui_input"]
+[connection signal="gui_input" from="UI/Book/BackingPanel" to="UI/Book/BackingPanel" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/InventoryBag" to="UI/InventoryBag" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/InventoryBag/BackingPanel" to="UI/InventoryBag/BackingPanel" method="_on_gui_input"]

@@ -1,6 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://juc1l0n7w05i"]
+[gd_scene load_steps=10 format=3 uid="uid://juc1l0n7w05i"]
 
+[ext_resource type="Texture2D" uid="uid://dar3hedytgyeo" path="res://Assets/rice-field-icon.png" id="1_iypbk"]
 [ext_resource type="Script" path="res://Scripts/Link.gd" id="1_tqbar"]
+[ext_resource type="Texture2D" uid="uid://dljc4j2kbqes2" path="res://Assets/field-icon.png" id="3_x67ix"]
+[ext_resource type="Texture2D" uid="uid://nxidwcenmlv" path="res://Assets/restaurant.jpeg" id="4_lhcvn"]
+[ext_resource type="Texture2D" uid="uid://bfi7pwvacxm8p" path="res://Assets/factory.png" id="5_5vyv1"]
 
 [sub_resource type="Gradient" id="Gradient_aqrdh"]
 offsets = PackedFloat32Array(0, 0.275229, 1)
@@ -8,35 +12,6 @@ colors = PackedColorArray(0.672752, 0.672752, 0.672751, 1, 0.263749, 0.487436, 0
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_05bgu"]
 gradient = SubResource("Gradient_aqrdh")
-
-[sub_resource type="Gradient" id="Gradient_fdfmv"]
-offsets = PackedFloat32Array(0, 0.275229, 1)
-colors = PackedColorArray(0, 0, 1, 1, 0.208835, 0.428547, 0.995284, 1, 0.0901961, 0.956863, 0.0313726, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmeob"]
-gradient = SubResource("Gradient_fdfmv")
-fill_from = Vector2(0.780488, 0)
-fill_to = Vector2(0.237805, 0.655488)
-
-[sub_resource type="Gradient" id="Gradient_sg7o4"]
-colors = PackedColorArray(0.338553, 0.284322, 0.128687, 1, 0.86536, 0.687373, 0.325427, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7n7k"]
-gradient = SubResource("Gradient_sg7o4")
-fill_from = Vector2(0.768293, 0.35061)
-fill_to = Vector2(0.429878, 1)
-
-[sub_resource type="Gradient" id="Gradient_l1ggo"]
-colors = PackedColorArray(0, 0, 0, 1, 0.938094, 0.670283, 0.551313, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kerys"]
-gradient = SubResource("Gradient_l1ggo")
-fill_to = Vector2(0.826219, 0.60061)
-
-[sub_resource type="Gradient" id="Gradient_4wxl0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5l2ye"]
-gradient = SubResource("Gradient_4wxl0")
 
 [sub_resource type="Gradient" id="Gradient_dkjmh"]
 colors = PackedColorArray(0, 0, 0.454902, 1, 0.509804, 0.803922, 0.862745, 1)
@@ -71,74 +46,78 @@ grow_vertical = 2
 texture = SubResource("GradientTexture1D_05bgu")
 
 [node name="RiceField" type="TextureRect" parent="Control"]
-offset_left = 1279.0
-offset_top = 251.0
-offset_right = 1424.0
-offset_bottom = 418.0
-texture = SubResource("GradientTexture2D_mmeob")
+offset_left = 1332.0
+offset_top = 221.0
+offset_right = 1502.0
+offset_bottom = 388.0
+texture = ExtResource("1_iypbk")
+ignore_texture_size = true
 script = ExtResource("1_tqbar")
 target = "res://Locations/RiceField.tscn"
 
 [node name="Label" type="Label" parent="Control/RiceField"]
-offset_left = -1.0
-offset_top = 20.0
-offset_right = 143.0
-offset_bottom = 68.0
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 159.0
+offset_bottom = 58.0
 theme_override_font_sizes/font_size = 32
 text = "Rice Field
 "
 
 [node name="Field" type="TextureRect" parent="Control"]
-offset_left = 1097.0
+offset_left = 1100.0
 offset_top = 143.0
-offset_right = 1242.0
+offset_right = 1261.0
 offset_bottom = 310.0
-texture = SubResource("GradientTexture2D_t7n7k")
+texture = ExtResource("3_x67ix")
+ignore_texture_size = true
 script = ExtResource("1_tqbar")
 target = "res://Locations/Field.tscn"
 
 [node name="Label" type="Label" parent="Control/Field"]
-offset_left = 31.0
-offset_top = 16.0
-offset_right = 175.0
-offset_bottom = 64.0
+offset_left = 46.0
+offset_top = 35.0
+offset_right = 190.0
+offset_bottom = 83.0
 theme_override_font_sizes/font_size = 32
 text = "Field
 "
 
 [node name="Restaurant" type="TextureRect" parent="Control"]
-offset_left = 288.0
+offset_left = 265.0
 offset_top = 566.0
-offset_right = 433.0
+offset_right = 462.0
 offset_bottom = 733.0
-texture = SubResource("GradientTexture2D_kerys")
+texture = ExtResource("4_lhcvn")
+ignore_texture_size = true
 script = ExtResource("1_tqbar")
 target = "res://Locations/Restaurant.tscn"
 
 [node name="Label2" type="Label" parent="Control/Restaurant"]
-offset_left = -7.0
-offset_top = 5.0
-offset_right = 165.0
-offset_bottom = 101.0
+offset_left = 12.0
+offset_top = 40.0
+offset_right = 184.0
+offset_bottom = 136.0
 theme_override_font_sizes/font_size = 32
 text = "Restaurant
 
 "
 
 [node name="Factory" type="TextureRect" parent="Control"]
-offset_left = 1040.0
-offset_top = 760.0
-offset_right = 1185.0
-offset_bottom = 927.0
-texture = SubResource("GradientTexture2D_5l2ye")
+offset_left = 1011.0
+offset_top = 629.0
+offset_right = 1156.0
+offset_bottom = 796.0
+texture = ExtResource("5_5vyv1")
+ignore_texture_size = true
 script = ExtResource("1_tqbar")
 target = "res://Locations/Factory.tscn"
 
 [node name="Label2" type="Label" parent="Control/Factory"]
-offset_left = 12.0
-offset_top = 6.0
-offset_right = 131.0
-offset_bottom = 102.0
+offset_left = 17.0
+offset_top = 111.0
+offset_right = 136.0
+offset_bottom = 207.0
 theme_override_font_sizes/font_size = 32
 text = "Factory
 

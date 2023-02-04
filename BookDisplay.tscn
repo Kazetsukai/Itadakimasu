@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bs1afjdqfjopx"]
+
+[ext_resource type="Theme" uid="uid://dj83om2vkmgc2" path="res://BookTheme.tres" id="1_eyssv"]
+[ext_resource type="Texture2D" uid="uid://wg0f3csqfmbh" path="res://Assets/salmon-sushi.png" id="2_w5a6t"]
+[ext_resource type="Texture2D" uid="uid://lo7jkvdrwwco" path="res://Assets/sugar.png" id="3_kunct"]
+[ext_resource type="Texture2D" uid="uid://b583dr87ps5oj" path="res://Assets/vinegar.png" id="4_jhq2q"]
+[ext_resource type="Texture2D" uid="uid://bh81oq3nmps22" path="res://Assets/salt.png" id="5_1nrfq"]
+[ext_resource type="Texture2D" uid="uid://bilf6acm5srda" path="res://Assets/steamedrice.png" id="6_e2oti"]
+[ext_resource type="Texture2D" uid="uid://b3n1oih517cu8" path="res://Assets/wasabi-paste.png" id="7_6hdlg"]
+[ext_resource type="Texture2D" uid="uid://cmv4y55xeqlw2" path="res://Assets/salmon-sashimi.png" id="8_dfay0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlepf"]
+bg_color = Color(0.831373, 0.764706, 0.705882, 1)
+
+[node name="ss" type="PanelContainer"]
+offset_right = 1269.0
+offset_bottom = 784.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tlepf")
+
+[node name="Page1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1269.0
+offset_bottom = 784.0
+
+[node name="Title" type="Label" parent="Page1"]
+offset_left = 114.0
+offset_top = 62.0
+offset_right = 630.0
+offset_bottom = 175.0
+theme = ExtResource("1_eyssv")
+theme_override_font_sizes/font_size = 80
+text = "Salmon Sushi"
+
+[node name="Label" type="Label" parent="Page1"]
+offset_left = 116.0
+offset_top = 210.0
+offset_right = 1082.0
+offset_bottom = 790.0
+theme = ExtResource("1_eyssv")
+text = "To make a piece of salmon sushi, take some seasoned white rice, add a small dot of wasabi paste, and place a slice of salmon sashimi on top.
+
+Seasoned sushi rice is made by adding salt, vinegar, and sugar to cooked white rice, and cooling it down quickly."
+autowrap_mode = 2
+
+[node name="Salmon-sushi" type="Sprite2D" parent="Page1"]
+position = Vector2(790, 138)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_w5a6t")
+
+[node name="Sugar" type="Sprite2D" parent="Page1"]
+position = Vector2(651.5, 645)
+scale = Vector2(0.206, 0.206)
+texture = ExtResource("3_kunct")
+
+[node name="Vinegar" type="Sprite2D" parent="Page1"]
+position = Vector2(749.5, 646)
+scale = Vector2(0.223, 0.223)
+texture = ExtResource("4_jhq2q")
+
+[node name="Salt" type="Sprite2D" parent="Page1"]
+position = Vector2(701.5, 651)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("5_1nrfq")
+
+[node name="Steamedrice" type="Sprite2D" parent="Page1"]
+position = Vector2(862.5, 645)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("6_e2oti")
+
+[node name="Wasabi-paste" type="Sprite2D" parent="Page1"]
+position = Vector2(1079, 414)
+scale = Vector2(0.248, 0.192)
+texture = ExtResource("7_6hdlg")
+
+[node name="Salmon-sashimi" type="Sprite2D" parent="Page1"]
+position = Vector2(1104, 270)
+scale = Vector2(0.358, 0.358)
+texture = ExtResource("8_dfay0")

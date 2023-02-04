@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://58nkpt7r26ln"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_j8pqd"]
+[ext_resource type="Texture2D" uid="uid://dreipp42dn1wm" path="res://Assets/wasabiplant.png" id="2_ocelc"]
+
+[node name="WasabiPlant" instance=ExtResource("1_j8pqd")]
+texture = ExtResource("2_ocelc")
+item_type = "WasabiPlant"

@@ -50,8 +50,8 @@ var item_list = {
 	"SugarBeet": preload("res://Items/SugarBeet.tscn"),
 	"SugarBeetJuice": preload("res://Items/SugarBeetJuice.tscn"),
 	
-	"WasabiSeed": preload("res://Items/RecipeItem.tscn"),
-	"WasabiPlant": preload("res://Items/RecipeItem.tscn"),
+	"WasabiSeed": preload("res://Items/WasabiSeed.tscn"),
+	"WasabiPlant": preload("res://Items/WasabiPlant.tscn"),
 	"WasabiPaste": preload("res://Items/WasabiPaste.tscn"),
 }
 
