@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://clkbyk34aa18y"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_d6e6b"]
+[ext_resource type="Texture2D" uid="uid://wg0f3csqfmbh" path="res://Assets/salmon-sushi.png" id="2_s25wk"]
+
+[node name="RecipeImage" instance=ExtResource("1_d6e6b")]
+texture = ExtResource("2_s25wk")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://7p04touuy2kj"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_5uxwi"]
+[ext_resource type="Texture2D" uid="uid://dljc4j2kbqes2" path="res://Assets/field-icon.png" id="2_b8lhl"]
+
+[node name="Field" instance=ExtResource("1_5uxwi")]
+texture = ExtResource("2_b8lhl")
+item_type = "Field"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://77xmchs3o5xd"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_eokt2"]
+[ext_resource type="Texture2D" uid="uid://2b2d46grrsan" path="res://Assets/thresher.png" id="2_4f12j"]
+
+[node name="Thresher" instance=ExtResource("1_eokt2")]
+texture = ExtResource("2_4f12j")
+item_type = "Thresher"

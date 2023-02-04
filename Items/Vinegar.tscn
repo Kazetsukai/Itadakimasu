@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://js4r58wwasvk"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_tily3"]
+[ext_resource type="Texture2D" uid="uid://b583dr87ps5oj" path="res://Assets/vinegar.png" id="2_aqc2k"]
+
+[node name="Vinegar" instance=ExtResource("1_tily3")]
+texture = ExtResource("2_aqc2k")
+item_type = "Vinegar"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpkyhdhpcsi8f"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_jw0xt"]
+[ext_resource type="Texture2D" uid="uid://dar3hedytgyeo" path="res://Assets/rice-field-icon.png" id="2_fakj8"]
+
+[node name="RiceField" instance=ExtResource("1_jw0xt")]
+texture = ExtResource("2_fakj8")
+item_type = "RiceField"

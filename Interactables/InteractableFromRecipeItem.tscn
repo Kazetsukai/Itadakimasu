@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjgvtv6a2xda"]
+
+[ext_resource type="Script" path="res://Scripts/Interactable.gd" id="1_6ja8x"]
+[ext_resource type="Script" path="res://Scripts/MakeInteractableFromRecipe.gd" id="2_bytug"]
+
+[sub_resource type="Gradient" id="Gradient_0lgvi"]
+offsets = PackedFloat32Array(0.174312, 0.729358)
+colors = PackedColorArray(0.0431373, 0.447059, 0.862745, 1, 0.737255, 0.447059, 0.964706, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o6m0l"]
+gradient = SubResource("Gradient_0lgvi")
+width = 128
+
+[node name="Interactable" type="TextureRect"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 0
+texture = SubResource("GradientTexture1D_o6m0l")
+ignore_texture_size = true
+script = ExtResource("1_6ja8x")
+
+[node name="MakeInteractableFromRecipe" type="Node" parent="."]
+script = ExtResource("2_bytug")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

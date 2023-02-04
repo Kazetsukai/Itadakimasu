@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqosutak5kwjh"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_u6e6m"]
+[ext_resource type="Texture2D" uid="uid://da5r4j412og8h" path="res://Assets/evaporator.png" id="2_m5y6h"]
+
+[node name="Evaporator" instance=ExtResource("1_u6e6m")]
+texture = ExtResource("2_m5y6h")
+item_type = "Evaporator"

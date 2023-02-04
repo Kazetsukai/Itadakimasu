@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca65gbrgk77bh"]
+
+[ext_resource type="PackedScene" uid="uid://duaqejc1grrdi" path="res://Interactables/Interactable.tscn" id="1_itmph"]
+
+[sub_resource type="Gradient" id="Gradient_abclv"]
+offsets = PackedFloat32Array(0.0412844, 1)
+colors = PackedColorArray(0.13105, 0.377422, 0.382257, 1, 0.486275, 1, 0.690196, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qemys"]
+gradient = SubResource("Gradient_abclv")
+
+[node name="Interactable" instance=ExtResource("1_itmph")]
+texture = SubResource("GradientTexture1D_qemys")
+item_type = "RiceField"

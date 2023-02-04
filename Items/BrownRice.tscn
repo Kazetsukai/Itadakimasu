@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd53g8rs3n6ni"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_piykg"]
+[ext_resource type="Texture2D" uid="uid://bpjtc2ibglsbw" path="res://Assets/brownrice.png" id="2_3jxwk"]
+
+[node name="BrownRice" instance=ExtResource("1_piykg")]
+texture = ExtResource("2_3jxwk")
+item_type = "BrownRice"

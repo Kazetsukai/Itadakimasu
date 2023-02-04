@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxyg5lvog0lhh"]
+
+[ext_resource type="Texture2D" uid="uid://cnub8wcrpgwti" path="res://Assets/rice-field.jpeg" id="1_aywre"]
+[ext_resource type="PackedScene" uid="uid://ca65gbrgk77bh" path="res://Interactables/RiceFieldInteractable.tscn" id="2_27f06"]
+
+[node name="Restaurant" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aywre")
+
+[node name="Interactable" parent="." instance=ExtResource("2_27f06")]
+offset_left = 106.0
+offset_top = 83.0
+offset_right = 1683.0
+offset_bottom = 935.0
+texture = null

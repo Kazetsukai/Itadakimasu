@@ -1,0 +1,130 @@
+[gd_scene load_steps=10 format=3 uid="uid://h3ixncd1lqh3"]
+
+[ext_resource type="Script" path="res://Scripts/RecipeBox.gd" id="1_2rv75"]
+[ext_resource type="Texture2D" uid="uid://cy0n7dotijvcq" path="res://Assets/inventory.png" id="2_ip7xp"]
+[ext_resource type="Script" path="res://Scripts/Link.gd" id="2_lhk3r"]
+[ext_resource type="Script" path="res://ItemCheat.gd" id="3_1x01w"]
+[ext_resource type="Script" path="res://Scripts/InventoryCloser.gd" id="3_2f27a"]
+[ext_resource type="Script" path="res://Scripts/InventoryBag.gd" id="3_h60vu"]
+[ext_resource type="Texture2D" uid="uid://qwfo40hfsecu" path="res://Assets/map.png" id="5_mf0jq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shlps"]
+bg_color = Color(0.141176, 0.109804, 0.0431373, 0.94902)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acdg1"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+
+[node name="Global" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Panel2" type="Panel" parent="UI"]
+modulate = Color(1, 1, 1, 0.337255)
+offset_left = 1716.0
+offset_top = 56.0
+offset_right = 1841.0
+offset_bottom = 178.0
+
+[node name="Map" type="TextureRect" parent="UI"]
+offset_left = 1716.0
+offset_top = 56.0
+offset_right = 1841.0
+offset_bottom = 178.0
+texture = ExtResource("5_mf0jq")
+ignore_texture_size = true
+script = ExtResource("2_lhk3r")
+target = "res://Locations/Map.tscn"
+
+[node name="Panel" type="Panel" parent="UI"]
+modulate = Color(1, 1, 1, 0.337255)
+offset_left = 1715.0
+offset_top = 211.0
+offset_right = 1843.0
+offset_bottom = 336.0
+
+[node name="InventoryBag" type="TextureRect" parent="UI"]
+offset_left = 1715.0
+offset_top = 211.0
+offset_right = 1843.0
+offset_bottom = 336.0
+texture = ExtResource("2_ip7xp")
+ignore_texture_size = true
+script = ExtResource("3_h60vu")
+
+[node name="BackingPanel" type="Panel" parent="UI/InventoryBag"]
+modulate = Color(1, 1, 1, 0.643137)
+layout_mode = 0
+offset_left = -1733.0
+offset_top = -229.0
+offset_right = 221.0
+offset_bottom = 889.0
+script = ExtResource("3_2f27a")
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/InventoryBag"]
+layout_mode = 0
+offset_left = -1636.0
+offset_top = -160.0
+offset_right = -64.0
+offset_bottom = 659.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_shlps")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/InventoryBag/PanelContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_acdg1")
+horizontal_scroll_mode = 0
+
+[node name="ItemList" type="GridContainer" parent="UI/InventoryBag/PanelContainer/ScrollContainer"]
+custom_minimum_size = Vector2(1500, 800)
+layout_mode = 2
+theme_override_constants/h_separation = 48
+theme_override_constants/v_separation = 48
+columns = 9
+script = ExtResource("3_1x01w")
+
+[node name="RecipePanel" type="Panel" parent="UI"]
+modulate = Color(1, 1, 1, 0.337255)
+offset_left = 72.0
+offset_top = 883.0
+offset_right = 1671.0
+offset_bottom = 1041.0
+
+[node name="RecipeBox" type="HBoxContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 92.0
+offset_top = 906.0
+offset_right = -268.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+script = ExtResource("1_2rv75")
+
+[node name="Equals" type="Label" parent="UI"]
+offset_left = 1686.0
+offset_top = 912.0
+offset_right = 1814.0
+offset_bottom = 1025.0
+theme_override_font_sizes/font_size = 80
+text = "="
+
+[node name="Result" type="PanelContainer" parent="UI"]
+offset_left = 1744.0
+offset_top = 903.0
+offset_right = 1872.0
+offset_bottom = 1031.0
+
+[connection signal="gui_input" from="UI/Map" to="UI/Map" method="_on_gui_input"]
+[connection signal="gui_input" from="UI/InventoryBag" to="UI/InventoryBag" method="_on_gui_input"]
+[connection signal="gui_input" from="UI/InventoryBag/BackingPanel" to="UI/InventoryBag/BackingPanel" method="_on_gui_input"]

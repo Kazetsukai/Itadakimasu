@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://pronn2bvhd13"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_xdkpr"]
+[ext_resource type="Texture2D" uid="uid://3x05vjqwvll5" path="res://Assets/juicer.png" id="2_2axgr"]
+
+[node name="Juicer" instance=ExtResource("1_xdkpr")]
+texture = ExtResource("2_2axgr")
+item_type = "Juicer"

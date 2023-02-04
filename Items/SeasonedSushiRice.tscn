@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbrc8dx24fa6g"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_mb3a2"]
+[ext_resource type="Texture2D" uid="uid://0alwtpuvlfpf" path="res://Assets/seasonedsushirice.png" id="2_xno5q"]
+
+[node name="SeasonedSushiRice" instance=ExtResource("1_mb3a2")]
+texture = ExtResource("2_xno5q")
+item_type = "SeasonedSushiRice"

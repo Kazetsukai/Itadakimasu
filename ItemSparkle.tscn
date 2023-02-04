@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ux6wut8g3mxt"]
+
+[ext_resource type="Texture2D" uid="uid://heckcqpdbdsl" path="res://Assets/sparkle.png" id="1_knfse"]
+[ext_resource type="Script" path="res://Scripts/ItemSparkle.gd" id="2_ibmvw"]
+
+[sub_resource type="Curve" id="Curve_2m2mi"]
+max_value = 100.0
+_data = [Vector2(0.00378242, 7.51418), 0.0, 0.0, 0, 0, Vector2(1, 40.4064), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_tj4ae"]
+colors = PackedColorArray(1, 1, 0.870588, 0.760784, 1, 1, 0, 0)
+
+[node name="ItemSparkle" type="CPUParticles2D"]
+scale = Vector2(10, 10)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_knfse")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+angular_velocity_min = -2.0
+angular_velocity_max = 2.0
+damping_min = 5.0
+damping_max = 10.0
+damping_curve = SubResource("Curve_2m2mi")
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.08
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_tj4ae")
+script = ExtResource("2_ibmvw")

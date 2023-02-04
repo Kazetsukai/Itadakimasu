@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4kbffh1mrw3o"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_108g0"]
+[ext_resource type="Texture2D" uid="uid://guaj2sb5snot" path="res://Assets/water.png" id="2_ctxqp"]
+
+[node name="Water" instance=ExtResource("1_108g0")]
+texture = ExtResource("2_ctxqp")
+item_type = "Water"

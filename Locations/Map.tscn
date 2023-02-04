@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=3 uid="uid://juc1l0n7w05i"]
+
+[ext_resource type="Script" path="res://Scripts/Link.gd" id="1_tqbar"]
+
+[sub_resource type="Gradient" id="Gradient_aqrdh"]
+offsets = PackedFloat32Array(0, 0.275229, 1)
+colors = PackedColorArray(0.672752, 0.672752, 0.672751, 1, 0.263749, 0.487436, 0.643898, 1, 0.321569, 0.678431, 0.317647, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05bgu"]
+gradient = SubResource("Gradient_aqrdh")
+
+[sub_resource type="Gradient" id="Gradient_fdfmv"]
+offsets = PackedFloat32Array(0, 0.275229, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0.208835, 0.428547, 0.995284, 1, 0.0901961, 0.956863, 0.0313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mmeob"]
+gradient = SubResource("Gradient_fdfmv")
+fill_from = Vector2(0.780488, 0)
+fill_to = Vector2(0.237805, 0.655488)
+
+[sub_resource type="Gradient" id="Gradient_sg7o4"]
+colors = PackedColorArray(0.338553, 0.284322, 0.128687, 1, 0.86536, 0.687373, 0.325427, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t7n7k"]
+gradient = SubResource("Gradient_sg7o4")
+fill_from = Vector2(0.768293, 0.35061)
+fill_to = Vector2(0.429878, 1)
+
+[sub_resource type="Gradient" id="Gradient_l1ggo"]
+colors = PackedColorArray(0, 0, 0, 1, 0.938094, 0.670283, 0.551313, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kerys"]
+gradient = SubResource("Gradient_l1ggo")
+fill_to = Vector2(0.826219, 0.60061)
+
+[sub_resource type="Gradient" id="Gradient_4wxl0"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5l2ye"]
+gradient = SubResource("Gradient_4wxl0")
+
+[sub_resource type="Gradient" id="Gradient_dkjmh"]
+colors = PackedColorArray(0, 0, 0.454902, 1, 0.509804, 0.803922, 0.862745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n3dda"]
+gradient = SubResource("Gradient_dkjmh")
+fill_from = Vector2(0.292683, 0)
+fill_to = Vector2(0.216463, 0.670732)
+
+[node name="Map" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_05bgu")
+
+[node name="RiceField" type="TextureRect" parent="Control"]
+offset_left = 1279.0
+offset_top = 251.0
+offset_right = 1424.0
+offset_bottom = 418.0
+texture = SubResource("GradientTexture2D_mmeob")
+script = ExtResource("1_tqbar")
+target = "res://Locations/RiceField.tscn"
+
+[node name="Label" type="Label" parent="Control/RiceField"]
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 143.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 32
+text = "Rice Field
+"
+
+[node name="Field" type="TextureRect" parent="Control"]
+offset_left = 1097.0
+offset_top = 143.0
+offset_right = 1242.0
+offset_bottom = 310.0
+texture = SubResource("GradientTexture2D_t7n7k")
+script = ExtResource("1_tqbar")
+target = "res://Locations/Field.tscn"
+
+[node name="Label" type="Label" parent="Control/Field"]
+offset_left = 31.0
+offset_top = 16.0
+offset_right = 175.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 32
+text = "Field
+"
+
+[node name="Restaurant" type="TextureRect" parent="Control"]
+offset_left = 288.0
+offset_top = 566.0
+offset_right = 433.0
+offset_bottom = 733.0
+texture = SubResource("GradientTexture2D_kerys")
+script = ExtResource("1_tqbar")
+target = "res://Locations/Restaurant.tscn"
+
+[node name="Label2" type="Label" parent="Control/Restaurant"]
+offset_left = -7.0
+offset_top = 5.0
+offset_right = 165.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 32
+text = "Restaurant
+
+"
+
+[node name="Factory" type="TextureRect" parent="Control"]
+offset_left = 1040.0
+offset_top = 760.0
+offset_right = 1185.0
+offset_bottom = 927.0
+texture = SubResource("GradientTexture2D_5l2ye")
+script = ExtResource("1_tqbar")
+target = "res://Locations/Factory.tscn"
+
+[node name="Label2" type="Label" parent="Control/Factory"]
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 131.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 32
+text = "Factory
+
+"
+
+[node name="River" type="TextureRect" parent="Control"]
+offset_left = 1494.0
+offset_top = 652.0
+offset_right = 1639.0
+offset_bottom = 819.0
+texture = SubResource("GradientTexture2D_n3dda")
+script = ExtResource("1_tqbar")
+target = "res://Locations/River.tscn"
+
+[node name="Label2" type="Label" parent="Control/River"]
+offset_left = 12.0
+offset_top = 6.0
+offset_right = 131.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 32
+text = "River
+
+
+"
+
+[connection signal="gui_input" from="Control/RiceField" to="Control/RiceField" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/Field" to="Control/Field" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/Restaurant" to="Control/Restaurant" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/Factory" to="Control/Factory" method="_on_gui_input"]
+[connection signal="gui_input" from="Control/River" to="Control/River" method="_on_gui_input"]

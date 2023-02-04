@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu28gu5vqxac4"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_8i753"]
+[ext_resource type="Texture2D" uid="uid://bh81oq3nmps22" path="res://Assets/salt.png" id="2_0jqi8"]
+
+[node name="Salt" instance=ExtResource("1_8i753")]
+texture = ExtResource("2_0jqi8")
+item_type = "Salt"

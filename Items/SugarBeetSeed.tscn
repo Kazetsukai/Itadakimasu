@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ey1gffjpy6at"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_gkgxy"]
+[ext_resource type="Texture2D" uid="uid://c1piawxy8bael" path="res://Assets/sugarbeet-seed.png" id="2_b2gi0"]
+
+[node name="SugarBeetSeed" instance=ExtResource("1_gkgxy")]
+texture = ExtResource("2_b2gi0")
+item_type = "SugarBeetSeed"

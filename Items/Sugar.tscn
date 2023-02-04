@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://k1vsdbufk64g"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_jgndh"]
+[ext_resource type="Texture2D" uid="uid://lo7jkvdrwwco" path="res://Assets/sugar.png" id="2_12c5a"]
+
+[node name="Sugar" instance=ExtResource("1_jgndh")]
+texture = ExtResource("2_12c5a")
+item_type = "Sugar"

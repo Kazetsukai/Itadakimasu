@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbio0mo84bysd"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_wsu5s"]
+[ext_resource type="Texture2D" uid="uid://b3n1oih517cu8" path="res://Assets/wasabi-paste.png" id="2_8ui8k"]
+
+[node name="WasabiPaste" instance=ExtResource("1_wsu5s")]
+texture = ExtResource("2_8ui8k")
+item_type = "WasabiPaste"
