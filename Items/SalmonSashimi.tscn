@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgmbpnjfilp6i"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_enxdd"]
+[ext_resource type="Texture2D" uid="uid://cmv4y55xeqlw2" path="res://Assets/salmon-sashimi.png" id="2_3xyhj"]
+
+[node name="SalmonSashimi" instance=ExtResource("1_enxdd")]
+texture = ExtResource("2_3xyhj")
+item_type = "SalmonSashimi"

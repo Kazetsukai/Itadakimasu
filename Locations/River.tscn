@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqru4e70ctsja"]
+[gd_scene load_steps=3 format=3 uid="uid://bqru4e70ctsja"]
 
+[ext_resource type="Texture2D" uid="uid://bu3ycihlurlnx" path="res://Assets/river.jpeg" id="1_i1anu"]
 [ext_resource type="PackedScene" uid="uid://duaqejc1grrdi" path="res://Interactables/Interactable.tscn" id="1_ormy4"]
 
 [node name="River" type="Node2D"]
@@ -21,18 +22,17 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -1.0
+offset_top = -1.0
 offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_i1anu")
 
 [node name="River" parent="Control" instance=ExtResource("1_ormy4")]
-offset_left = 79.0
-offset_top = 129.0
-offset_right = 1939.0
-offset_bottom = 914.0
+offset_left = 38.0
+offset_top = 223.0
+offset_right = 1898.0
+offset_bottom = 1008.0
 texture = null
 item_type = "River"
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.239216, 0.47451, 1, 1)
-polygon = PackedVector2Array(-91, 886, 219, 722, 455, 616, 757, 610, 906, 494, 1023, 312, 1256, 233, 1574, 221, 1769, 277, 1966, 340, 1989, 898, 1859, 731, 1665, 625, 1497, 626, 1337, 639, 1137, 754, 1045, 835, 902, 915, 714, 901, 544, 898, 426, 964, 293, 1103, -22, 1203, -132, 1064)

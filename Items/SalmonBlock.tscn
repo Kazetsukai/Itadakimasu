@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq3utgdm6l05w"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_v05er"]
+[ext_resource type="Texture2D" uid="uid://befvaegvmqyk2" path="res://Assets/salmon-block.png" id="2_0f846"]
+
+[node name="SalmonBlock" instance=ExtResource("1_v05er")]
+texture = ExtResource("2_0f846")
+item_type = "SalmonBlock"

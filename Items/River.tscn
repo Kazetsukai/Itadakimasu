@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgca7t1ipq2ul"]
+
+[ext_resource type="PackedScene" uid="uid://boipjex2nn1ha" path="res://Items/RecipeItem.tscn" id="1_8aia1"]
+[ext_resource type="Texture2D" uid="uid://dmyvwacjik144" path="res://Assets/river-icon.png" id="2_6w3sg"]
+
+[node name="River" instance=ExtResource("1_8aia1")]
+texture = ExtResource("2_6w3sg")
+item_type = "River"

@@ -28,20 +28,21 @@ var item_list = {
 	"RicePlants": preload("res://Items/RicePlants.tscn"),
 	"RiceSeedlings": preload("res://Items/RiceSeedlings.tscn"),
 
-	"SalmonSashimi": preload("res://Items/RecipeItem.tscn"),
-	"SalmonBlock": preload("res://Items/RecipeItem.tscn"),
-	"Salmon": preload("res://Items/RecipeItem.tscn"),
+	"SalmonSashimi": preload("res://Items/SalmonSashimi.tscn"),
+	"SalmonBlock": preload("res://Items/SalmonBlock.tscn"),
+	"Salmon": preload("res://Items/Salmon.tscn"),
 
-	"Knife": preload("res://Items/RecipeItem.tscn"),
-	"FishingRod": preload("res://Items/RecipeItem.tscn"),
+	"Knife": preload("res://Items/Knife.tscn"),
+	"FishingRod": preload("res://Items/FishingRod.tscn"),
 	"Grater": preload("res://Items/Grater.tscn"),
 	"RiceCooker": preload("res://Items/RiceCooker.tscn"),
 	
-	"River": preload("res://Items/RecipeItem.tscn"),
+	"River": preload("res://Items/River.tscn"),
 	"Field": preload("res://Items/Field.tscn"),
 	"RiceField": preload("res://Items/RiceField.tscn"),
 	
 	"Husker": preload("res://Items/Husker.tscn"),
+	"Juicer": preload("res://Items/Juicer.tscn"),
 	"Thresher": preload("res://Items/Thresher.tscn"),
 	"Evaporator": preload("res://Items/Evaporator.tscn"),
 	"BranRemover": preload("res://Items/BranRemover.tscn"),
@@ -73,7 +74,7 @@ var recipes = {
 	"Salmon": ["River", "FishingRod"],
 	
 	"SugarBeet": ["Field", "SugarBeetSeed"],
-	"SugarBeetJuice": ["SugarBeet", "Crusher"],
+	"SugarBeetJuice": ["SugarBeet", "Juicer"],
 	"Sugar": ["SugarBeetJuice", "Evaporator"]
 }
 

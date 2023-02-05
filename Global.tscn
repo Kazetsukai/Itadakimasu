@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://h3ixncd1lqh3"]
+[gd_scene load_steps=22 format=3 uid="uid://h3ixncd1lqh3"]
 
 [ext_resource type="Script" path="res://Scripts/RecipeBox.gd" id="1_2rv75"]
+[ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_q3dvv"]
 [ext_resource type="Texture2D" uid="uid://cy0n7dotijvcq" path="res://Assets/inventory.png" id="2_ip7xp"]
 [ext_resource type="Script" path="res://Scripts/Link.gd" id="2_lhk3r"]
 [ext_resource type="Script" path="res://ItemCheat.gd" id="3_1x01w"]
@@ -8,14 +9,50 @@
 [ext_resource type="Script" path="res://Scripts/Book.gd" id="3_2j6xo"]
 [ext_resource type="Script" path="res://Scripts/InventoryBag.gd" id="3_h60vu"]
 [ext_resource type="Script" path="res://Scripts/BackingPanel.gd" id="4_cq6bj"]
+[ext_resource type="Texture2D" uid="uid://dbgqfhqhswih1" path="res://Assets/book.png" id="4_wth22"]
 [ext_resource type="PackedScene" uid="uid://bs1afjdqfjopx" path="res://BookDisplay.tscn" id="5_fiajc"]
 [ext_resource type="Texture2D" uid="uid://qwfo40hfsecu" path="res://Assets/map.png" id="5_mf0jq"]
+[ext_resource type="Texture2D" uid="uid://wg0f3csqfmbh" path="res://Assets/salmon-sushi.png" id="11_0c8a6"]
+[ext_resource type="Script" path="res://Scripts/OneMomentPlease.gd" id="12_eeejc"]
+[ext_resource type="Script" path="res://WinPanel.gd" id="15_t8uiw"]
 
-[sub_resource type="Gradient" id="Gradient_wpbiq"]
-colors = PackedColorArray(0.325926, 0.241814, 0.0930101, 1, 0.744716, 0.703879, 0.291784, 1)
+[sub_resource type="Animation" id="Animation_qq445"]
+resource_name = "BookGlow"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.486275), Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 0.486275)]
+}
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_3psmt"]
-gradient = SubResource("Gradient_wpbiq")
+[sub_resource type="Animation" id="Animation_vpkmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ui387"]
+_data = {
+"BookGlow": SubResource("Animation_qq445"),
+"RESET": SubResource("Animation_vpkmp")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shlps"]
 bg_color = Color(0.141176, 0.109804, 0.0431373, 0.94902)
@@ -25,6 +62,9 @@ content_margin_left = 32.0
 content_margin_top = 32.0
 content_margin_right = 32.0
 content_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_potkc"]
+bg_color = Color(0.756863, 0.694118, 0.682353, 1)
 
 [node name="Global" type="Control"]
 layout_mode = 3
@@ -36,6 +76,7 @@ grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 5
+script = ExtResource("1_q3dvv")
 
 [node name="MapPanel" type="Panel" parent="UI"]
 modulate = Color(1, 1, 1, 0.337255)
@@ -66,7 +107,7 @@ offset_left = 1716.0
 offset_top = 365.0
 offset_right = 1841.0
 offset_bottom = 487.0
-texture = SubResource("GradientTexture1D_3psmt")
+texture = ExtResource("4_wth22")
 ignore_texture_size = true
 script = ExtResource("3_2j6xo")
 
@@ -74,7 +115,6 @@ script = ExtResource("3_2j6xo")
 visible = false
 self_modulate = Color(1, 1, 1, 0.741176)
 z_index = 1
-layout_mode = 0
 offset_left = -1722.0
 offset_top = -378.0
 offset_right = 232.0
@@ -82,11 +122,20 @@ offset_bottom = 740.0
 script = ExtResource("4_cq6bj")
 
 [node name="BookDisplay" parent="UI/Book/BackingPanel" instance=ExtResource("5_fiajc")]
-layout_mode = 0
 offset_left = 229.0
 offset_top = 74.0
 offset_right = 1498.0
 offset_bottom = 858.0
+
+[node name="BookTutorial" type="AnimationPlayer" parent="UI/Book"]
+libraries = {
+"": SubResource("AnimationLibrary_ui387")
+}
+
+[node name="Salmon-sushi" type="Sprite2D" parent="UI/Book"]
+position = Vector2(66, 65)
+scale = Vector2(0.123, 0.123)
+texture = ExtResource("11_0c8a6")
 
 [node name="BagPanel" type="Panel" parent="UI"]
 modulate = Color(1, 1, 1, 0.337255)
@@ -107,7 +156,6 @@ script = ExtResource("3_h60vu")
 [node name="BackingPanel" type="Panel" parent="UI/InventoryBag"]
 visible = false
 modulate = Color(1, 1, 1, 0.643137)
-layout_mode = 0
 offset_left = -1733.0
 offset_top = -229.0
 offset_right = 221.0
@@ -116,7 +164,6 @@ script = ExtResource("3_2f27a")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/InventoryBag"]
 visible = false
-layout_mode = 0
 offset_left = -1636.0
 offset_top = -160.0
 offset_right = -64.0
@@ -124,13 +171,15 @@ offset_bottom = 659.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_shlps")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/InventoryBag/PanelContainer"]
-layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_acdg1")
 horizontal_scroll_mode = 0
 
 [node name="ItemList" type="GridContainer" parent="UI/InventoryBag/PanelContainer/ScrollContainer"]
 custom_minimum_size = Vector2(1500, 800)
-layout_mode = 2
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 1532.0
+offset_bottom = 832.0
 theme_override_constants/h_separation = 48
 theme_override_constants/v_separation = 48
 columns = 9
@@ -170,8 +219,77 @@ offset_top = 903.0
 offset_right = 1872.0
 offset_bottom = 1031.0
 
+[node name="IntroPanel" type="Panel" parent="UI"]
+visible = false
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 1948.0
+offset_bottom = 1105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_potkc")
+
+[node name="Label" type="Label" parent="UI/IntroPanel"]
+offset_left = 186.0
+offset_top = 174.0
+offset_right = 1395.0
+offset_bottom = 471.0
+theme_override_colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_font_sizes/font_size = 70
+text = "Hi there
+       could I please get one piece 
+                                    of salmon sushi?"
+
+[node name="Salmon-sushi" type="Sprite2D" parent="UI/IntroPanel/Label"]
+position = Vector2(1365, 329)
+scale = Vector2(0.66, 0.66)
+texture = ExtResource("11_0c8a6")
+
+[node name="Label" type="Button" parent="UI/IntroPanel/Label"]
+offset_left = 242.0
+offset_top = 549.0
+offset_right = 1332.0
+offset_bottom = 810.0
+theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
+theme_override_font_sizes/font_size = 70
+text = "Sure, one moment please"
+script = ExtResource("12_eeejc")
+
+[node name="WinPanel" type="Panel" parent="UI"]
+visible = false
+offset_left = -6.0
+offset_top = -13.0
+offset_right = 1948.0
+offset_bottom = 1105.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_potkc")
+script = ExtResource("15_t8uiw")
+
+[node name="Label" type="Label" parent="UI/WinPanel"]
+offset_left = 192.0
+offset_top = 191.0
+offset_right = 1401.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_font_sizes/font_size = 70
+text = "Here you go!
+
+    One piece of salmon sushi"
+
+[node name="Salmon-sushi" type="Sprite2D" parent="UI/WinPanel/Label"]
+position = Vector2(1337, 215)
+scale = Vector2(1.096, 1.096)
+texture = ExtResource("11_0c8a6")
+
+[node name="Label" type="Label" parent="UI/WinPanel/Label"]
+offset_left = 183.0
+offset_top = 564.0
+offset_right = 1374.0
+offset_bottom = 745.0
+theme_override_colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
+theme_override_font_sizes/font_size = 130
+text = "Thanks for playing!"
+
 [connection signal="gui_input" from="UI/Map" to="UI/Map" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/Book" to="UI/Book" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/Book/BackingPanel" to="UI/Book/BackingPanel" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/InventoryBag" to="UI/InventoryBag" method="_on_gui_input"]
 [connection signal="gui_input" from="UI/InventoryBag/BackingPanel" to="UI/InventoryBag/BackingPanel" method="_on_gui_input"]
+[connection signal="pressed" from="UI/IntroPanel/Label/Label" to="UI/IntroPanel/Label/Label" method="_on_pressed"]
