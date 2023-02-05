@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://h3ixncd1lqh3"]
+[gd_scene load_steps=24 format=3 uid="uid://h3ixncd1lqh3"]
 
 [ext_resource type="Script" path="res://Scripts/RecipeBox.gd" id="1_2rv75"]
 [ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_q3dvv"]
@@ -14,7 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://qwfo40hfsecu" path="res://Assets/map.png" id="5_mf0jq"]
 [ext_resource type="Texture2D" uid="uid://wg0f3csqfmbh" path="res://Assets/salmon-sushi.png" id="11_0c8a6"]
 [ext_resource type="Script" path="res://Scripts/OneMomentPlease.gd" id="12_eeejc"]
+[ext_resource type="Texture2D" uid="uid://kjwccc0agjkw" path="res://Assets/bg.jpeg" id="14_7legb"]
 [ext_resource type="Script" path="res://WinPanel.gd" id="15_t8uiw"]
+[ext_resource type="Texture2D" uid="uid://s5mcpck6p2x1" path="res://Assets/hd.png" id="17_xeo17"]
 
 [sub_resource type="Animation" id="Animation_qq445"]
 resource_name = "BookGlow"
@@ -64,7 +66,7 @@ content_margin_right = 32.0
 content_margin_bottom = 32.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_potkc"]
-bg_color = Color(0.756863, 0.694118, 0.682353, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Global" type="Control"]
 layout_mode = 3
@@ -115,6 +117,7 @@ script = ExtResource("3_2j6xo")
 visible = false
 self_modulate = Color(1, 1, 1, 0.741176)
 z_index = 1
+layout_mode = 0
 offset_left = -1722.0
 offset_top = -378.0
 offset_right = 232.0
@@ -122,6 +125,7 @@ offset_bottom = 740.0
 script = ExtResource("4_cq6bj")
 
 [node name="BookDisplay" parent="UI/Book/BackingPanel" instance=ExtResource("5_fiajc")]
+layout_mode = 0
 offset_left = 229.0
 offset_top = 74.0
 offset_right = 1498.0
@@ -156,6 +160,7 @@ script = ExtResource("3_h60vu")
 [node name="BackingPanel" type="Panel" parent="UI/InventoryBag"]
 visible = false
 modulate = Color(1, 1, 1, 0.643137)
+layout_mode = 0
 offset_left = -1733.0
 offset_top = -229.0
 offset_right = 221.0
@@ -164,6 +169,7 @@ script = ExtResource("3_2f27a")
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/InventoryBag"]
 visible = false
+layout_mode = 0
 offset_left = -1636.0
 offset_top = -160.0
 offset_right = -64.0
@@ -171,15 +177,13 @@ offset_bottom = 659.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_shlps")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI/InventoryBag/PanelContainer"]
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_acdg1")
 horizontal_scroll_mode = 0
 
 [node name="ItemList" type="GridContainer" parent="UI/InventoryBag/PanelContainer/ScrollContainer"]
 custom_minimum_size = Vector2(1500, 800)
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 1532.0
-offset_bottom = 832.0
+layout_mode = 2
 theme_override_constants/h_separation = 48
 theme_override_constants/v_separation = 48
 columns = 9
@@ -227,7 +231,14 @@ offset_right = 1948.0
 offset_bottom = 1105.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_potkc")
 
+[node name="Bg" type="Sprite2D" parent="UI/IntroPanel"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(987.889, 559)
+scale = Vector2(1.02593, 1.02593)
+texture = ExtResource("14_7legb")
+
 [node name="Label" type="Label" parent="UI/IntroPanel"]
+layout_mode = 0
 offset_left = 186.0
 offset_top = 174.0
 offset_right = 1395.0
@@ -244,6 +255,7 @@ scale = Vector2(0.66, 0.66)
 texture = ExtResource("11_0c8a6")
 
 [node name="Label" type="Button" parent="UI/IntroPanel/Label"]
+layout_mode = 0
 offset_left = 242.0
 offset_top = 549.0
 offset_right = 1332.0
@@ -254,7 +266,6 @@ text = "Sure, one moment please"
 script = ExtResource("12_eeejc")
 
 [node name="WinPanel" type="Panel" parent="UI"]
-visible = false
 offset_left = -6.0
 offset_top = -13.0
 offset_right = 1948.0
@@ -262,11 +273,24 @@ offset_bottom = 1105.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_potkc")
 script = ExtResource("15_t8uiw")
 
+[node name="Bg" type="Sprite2D" parent="UI/WinPanel"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(987.889, 559)
+scale = Vector2(1.02593, 1.02593)
+texture = ExtResource("14_7legb")
+
+[node name="Hd" type="Sprite2D" parent="UI/WinPanel"]
+modulate = Color(0.152941, 0.152941, 0.152941, 1)
+position = Vector2(1491, 962)
+scale = Vector2(0.584388, 0.584388)
+texture = ExtResource("17_xeo17")
+
 [node name="Label" type="Label" parent="UI/WinPanel"]
-offset_left = 192.0
-offset_top = 191.0
-offset_right = 1401.0
-offset_bottom = 488.0
+layout_mode = 0
+offset_left = 189.0
+offset_top = 144.0
+offset_right = 1398.0
+offset_bottom = 441.0
 theme_override_colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
 theme_override_font_sizes/font_size = 70
 text = "Here you go!
@@ -279,10 +303,11 @@ scale = Vector2(1.096, 1.096)
 texture = ExtResource("11_0c8a6")
 
 [node name="Label" type="Label" parent="UI/WinPanel/Label"]
-offset_left = 183.0
-offset_top = 564.0
-offset_right = 1374.0
-offset_bottom = 745.0
+layout_mode = 0
+offset_left = 180.0
+offset_top = 439.0
+offset_right = 1371.0
+offset_bottom = 620.0
 theme_override_colors/font_color = Color(0.121569, 0.121569, 0.121569, 1)
 theme_override_font_sizes/font_size = 130
 text = "Thanks for playing!"
